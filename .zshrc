@@ -1,8 +1,3 @@
-# git init --bare $HOME/.cfg
-# alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-# config config --local status.showUntrackedFiles no
-# echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc
-
 autoload -U promptinit; promptinit
 autoload -Uz compinit && compinit
 
@@ -26,13 +21,15 @@ setopt EXTENDED_HISTORY
 
 # Vim mode
 bindkey -v
+bindkey -s '^f' 'tmux-sessionizer^M'
+
 alias ls='exa'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias gitdot="git remote remove origin; git remote add origin git@github.com:abhishek-kaith/.dotfiles.git;"
 alias wproxystart="adb shell settings put global http_proxy 192.168.240.1:8080"
 alias wproxystop="adb shell settings put global http_proxy :0"
-alias sdb="xdg-settings set default-web-browser firefox.desktop"
-bindkey -s '^f' 'tmux-sessionizer^M'
-bindkey -s '^g' 'tmux neww tmux-cht.sh^M'
-export PATH="/home/kai/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/kai/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Dotfiles Notes: 
+# git init --bare $HOME/.cfg
+# alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# config config --local status.showUntrackedFiles no
+# echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc

@@ -1,0 +1,37 @@
+
+#!/usr/bin/env bash
+
+# Select a project directory using fzf if no argument is given
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/ ~/Projects ~/Projects/work ~/Projects/work/sht/ ~/Projects/personal -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+# Exit if no directory is selected
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+# Set the session name based on the selected directory
+session_name=$(basename "$selected" | tr . _)
+
+# Create a new tmux session if one is not already running
+if [[ -z $TMUX ]] && ! pgrep tmux > /dev/null; then
+    tmux new-session -s "$session_name" -c "$selected"
+    exit 0
+fi
+
+# Create a new tmux session if the selected session doesn't exist
+if ! tmux has-session -t="$session_name" 2> /dev/null; then
+    tmux new-session -ds "$session_name" -c "$selected"
+else
+    # If the session already exists and we're not in a tmux session, attach to it
+    if [[ -z $TMUX ]]; then
+        tmux attach-session -t "$session_name"
+        exit 0
+    fi
+fi
+
+# Switch to the selected session
+tmux switch-client -t "$session_name"
