@@ -12,3 +12,4 @@ sudo pacman -S brightnessctl # Control Brightness of display
 sudo pacman -S xdg-desktop-portal-hyprland # Screen Sharing
 sudo pacman -S network-manager-applet polkit-gnome blueman udiskie # Applets
 sudo pacman -S nautilus gvfs gvfs-mtp # FileManager
+sudo pacman -S grim slurp swappy imagemagick # Screenshot
