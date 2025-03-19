@@ -6,5 +6,6 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
 # GO Environment
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
