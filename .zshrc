@@ -28,6 +28,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias wproxystart="adb shell settings put global http_proxy 192.168.240.1:8080"
 alias wproxystop="adb shell settings put global http_proxy :0"
 
+# waydroid prop set persist.waydroid.width 350 
+# waydroid prop set persist.waydroid.height 700
+# waydroid session stop
 # Dotfiles Notes: 
 # git init --bare $HOME/.cfg
 # alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

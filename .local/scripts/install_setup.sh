@@ -6,7 +6,7 @@ sudo bash -c 'echo "FONT=ter-128b" >> /etc/vconsole.conf'
 
 echo "Installing Useful Utils"
 
-sudo pacman -S jq tree ripgrep fzf man tldr whois pciutils usbutils iputils binutils dnsutils exa 
+sudo pacman -S jq tree ripgrep fzf man tldr whois pciutils usbutils iputils binutils dnsutils exa
 
 echo "Installing Cli tools"
 
@@ -14,7 +14,7 @@ sudo pacman -S openssh ntfs-3g xdg-user-dirs android-tools wget curl tar unzip z
 
 echo "installing Cli applications"
 
-sudo pacman -S git tmux vim neovim ansible alacritty ghostty htop fastfetch pass pass-otp docker docker-compose flatpak 
+sudo pacman -S git tmux vim neovim ansible cloc alacritty ghostty htop fastfetch pass pass-otp docker docker-compose flatpak
 
 echo "Installing fonts"
 

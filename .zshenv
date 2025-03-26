@@ -9,3 +9,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+
+# ANDROID SDK
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
