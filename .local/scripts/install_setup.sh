@@ -4,9 +4,9 @@ echo "Configure Vconsole"
 sudo pacman -S terminus-font
 sudo bash -c 'echo "FONT=ter-128b" >> /etc/vconsole.conf'
 
-echo "Installing Useful Utils"
+echo "Installing Useful Utils (eg. dig google.com, lsof -i :<port>)"
 
-sudo pacman -S jq tree ripgrep fzf man tldr whois pciutils usbutils iputils binutils dnsutils exa
+sudo pacman -S jq tree ripgrep fzf man tldr whois pciutils usbutils iputils binutils dnsutils lsof exa
 
 echo "Installing Cli tools"
 
