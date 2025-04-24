@@ -42,7 +42,7 @@ vim.opt.splitright = true -- Vertical splits open to the right
 vim.opt.splitbelow = true -- Horizontal splits open below
 
 -- Command Behavior
-vim.opt.inccommand = "split" -- Show live preview of substitutions eg. %s/foo/bar/g open new split at bottom with live preview
+-- vim.opt.inccommand = "split" -- Show live preview of substitutions eg. %s/foo/bar/g open new split at bottom with live preview
 vim.o.completeopt = "menuone,noselect" -- Better completion experience
 
 -- Performance Tweaks
