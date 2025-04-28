@@ -13,6 +13,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # History setup
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
+EDITOR=nvim
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=1000
 HISTSIZE=999
