@@ -57,8 +57,30 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "emoji", "sql" },
+				default = {
+					"lsp",
+					"path",
+					"sql",
+					"obsidian",
+					"obsidian_tags",
+					"obsidian_new",
+					"snippets",
+					"buffer",
+					"emoji",
+				},
 				providers = {
+					obsidian = {
+						name = "obsidian",
+						module = "blink.compat.source",
+					},
+					obsidian_new = {
+						name = "obsidian_new",
+						module = "blink.compat.source",
+					},
+					obsidian_tags = {
+						name = "obsidian_tags",
+						module = "blink.compat.source",
+					},
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 					emoji = {
 						module = "blink-emoji",

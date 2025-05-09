@@ -18,7 +18,7 @@ sudo pacman -S git tmux vim neovim ansible cloc alacritty ghostty htop fastfetch
 
 echo "Installing fonts"
 
-sudo pacman -S awesome-terminal-fonts ttf-hack ttf-jetbrains-mono ttf-jetbrains-mono-nerd
+sudo pacman -S ttf-iosevka-nerd awesome-terminal-fonts ttf-hack ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts-emoji ttf-nerd-fonts-symbols-mono
 
 echo "Installing Shell"
 
@@ -56,3 +56,7 @@ VOLTA_HOME=$HOME/.volta
 export PATH=$VOLTA_HOME/bin
 
 volta install node@lts
+
+echo "Installing Rust"
+sudo pacman -S rustup
+rustup default stable
