@@ -18,3 +18,6 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$HOME/development/flutter/bin:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/thorium-browser"
+
+# Solana Cli
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
