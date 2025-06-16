@@ -46,8 +46,11 @@ echo  "NOTE add .cfg in gitignore"
 echo  "config config --local status.showUntrackedFiles no"
 git clone git@github.com:abhishek-kaith/dotfiles $HOME/.dotfiles
 
+echo "Installing qutebrowser"
+sudo pacman -S qutebrowser
+
 echo "Install flatpaks"
-flatpak install app.zen_browser.zen/x86_64/stable
+flatpak install flathub com.brave.Browser
 
 echo "Setting Up Node.js"
 curl https://get.volta.sh | bash
