@@ -1,2 +1,2 @@
+require("config.key")
 require("config.base")
-require("config.keymap")

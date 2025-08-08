@@ -1,7 +1,3 @@
--- Leader Key Configuration
-vim.g.mapleader = " " -- Use <space> as the leader key
-vim.g.maplocalleader = " " -- Same for local leader
-
 -- Interface Settings
 vim.opt.number = true -- Show absolute line numbers
 vim.opt.relativenumber = true -- Show relative line numbers
@@ -9,15 +5,15 @@ vim.opt.cursorline = true -- Highlight current line
 vim.wo.signcolumn = "yes" -- Always show signcolumn (for Git, LSP, etc.)
 vim.opt.wrap = false -- Don't wrap long lines
 vim.opt.scrolloff = 10 -- Minimum lines above/below cursor
--- vim.opt.colorcolumn = "80"       -- Style Guide Vertical Line to guide lenght of code
+vim.opt.colorcolumn = "80"       -- Style Guide Vertical Line to guide lenght of code
 
 -- Visuals & Characters
 vim.o.termguicolors = true -- Enable full RGB color support
 vim.opt.list = true -- Show invisible characters
 vim.opt.listchars = {
-	tab = "» ", -- Show tabs as »
-	trail = "·", -- Show trailing spaces
-	nbsp = "␣", -- Show non-breaking space
+tab = "» ", -- Show tabs as »
+trail = "·", -- Show trailing spaces
+nbsp = "␣", -- Show non-breaking space
 }
 
 -- Tabs & Indentation
@@ -35,6 +31,7 @@ vim.o.smartcase = true -- ...unless capital letters are used
 -- Clipboard & Undo
 vim.o.clipboard = "unnamedplus" -- Use system clipboard (works with Ctrl+C / Ctrl+V)
 vim.o.undofile = true -- Save undo history to disk
+vim.o.swapfile = false -- Disable swap file
 
 -- Mouse & Splits
 vim.o.mouse = "a" -- Enable mouse in all modes
@@ -43,33 +40,19 @@ vim.opt.splitbelow = true -- Horizontal splits open below
 
 -- Command Behavior
 -- vim.opt.inccommand = "split" -- Show live preview of substitutions eg. %s/foo/bar/g open new split at bottom with live preview
-vim.o.completeopt = "menuone,noselect" -- Better completion experience
+-- vim.o.completeopt = "menuone,noselect" -- Better completion experience
 
 -- Performance Tweaks
-vim.o.updatetime = 250 -- Faster CursorHold, LSP updates, etc.
-vim.o.timeoutlen = 300 -- Timeout for mapped sequence
+-- vim.o.updatetime = 250 -- Faster CursorHold, LSP updates, etc.
+-- vim.o.timeoutlen = 300 -- Timeout for mapped sequence
 
--- Plugin Manager
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	-- install = { colorscheme = { "rose-pine" } },
-	checker = { enabled = false },
+-- Plugins
+vim.pack.add({
+  "https://github.com/vague2k/vague.nvim",
+  "https://github.com/ibhagwan/fzf-lua"
 })
+
+vim.cmd("colorscheme vague")
+vim.cmd(":hi statusline guibg=NONE")
+
+require("fzf-lua").setup({'fzf-native'})
