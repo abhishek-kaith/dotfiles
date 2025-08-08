@@ -21,5 +21,4 @@ export CHROME_EXECUTABLE="/usr/bin/thorium-browser"
 
 # Solana Cli
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-
-export GEMINI_API_KEY="AIzaSyDlsTfJ4KvYf7zvD6CPN0UZDqSlK7zmqGk"
+. "$HOME/.local/share/bob/env/env.sh"

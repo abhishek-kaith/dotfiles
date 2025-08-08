@@ -14,7 +14,7 @@ sudo pacman -S openssh ntfs-3g xdg-user-dirs android-tools wget curl tar unzip z
 
 echo "installing Cli applications"
 
-sudo pacman -S git tmux vim neovim ansible cloc alacritty ghostty htop fastfetch pass pass-otp docker docker-compose flatpak
+sudo pacman -S git tmux vim bob ansible cloc alacritty ghostty htop fastfetch pass pass-otp docker docker-compose flatpak
 
 echo "Installing fonts"
 
