@@ -21,3 +21,4 @@ export CHROME_EXECUTABLE="/usr/bin/thorium-browser"
 
 # Solana Cli
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+. "$HOME/.local/share/bob/env/env.sh"
