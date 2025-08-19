@@ -16,6 +16,10 @@ vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
 
+-- Grapple
+vim.keymap.set("n", "<leader>a", ":lua require('grapple').toggle()<CR>")
+vim.keymap.set("n", "<C-e>", ":lua require('grapple').toggle_tags()<CR>")
+
 -- Lsp
 vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { desc = "Go to definition" })
 vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { desc = "Go to declaration" })

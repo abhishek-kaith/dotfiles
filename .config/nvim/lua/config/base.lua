@@ -39,36 +39,44 @@ vim.opt.splitright = true -- Vertical splits open to the right
 vim.opt.splitbelow = true -- Horizontal splits open below
 
 -- Command Behavior
--- vim.opt.inccommand = "split" -- Show live preview of substitutions eg. %s/foo/bar/g open new split at bottom with live preview
--- vim.o.completeopt = "menuone,noselect" -- Better completion experience
+vim.opt.inccommand =
+"split"                                -- Show live preview of substitutions eg. %s/foo/bar/g open new split at bottom with live preview
+vim.o.completeopt = "menuone,noselect" -- Better completion experience
 
 -- Performance Tweaks
--- vim.o.updatetime = 250 -- Faster CursorHold, LSP updates, etc.
--- vim.o.timeoutlen = 300 -- Timeout for mapped sequence
+vim.o.updatetime = 250 -- Faster CursorHold, LSP updates, etc.
+vim.o.timeoutlen = 300 -- Timeout for mapped sequence
 
 -- Plugins
 vim.pack.add({
   -- theme
   { src = "https://github.com/vague2k/vague.nvim" },
-  -- fuzzy finder
+  -- naviagation
   { src = "https://github.com/ibhagwan/fzf-lua" },
+  { src = "https://github.com/cbochs/grapple.nvim" },
+
   -- lsp
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
   { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
   { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
   -- autocomplete with snippets
-  { src = "https://github.com/Saghen/blink.cmp", version="v1.6.0" },
+  { src = "https://github.com/Saghen/blink.cmp",                         version = "v1.6.0" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
   { src = "https://github.com/rafamadriz/friendly-snippets" },
   -- Syntax highlight
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  -- Git
+  { src = "https://github.com/lewis6991/gitsigns.nvim" },
 })
 
 vim.cmd("colorscheme vague")
 vim.cmd(":hi statusline guibg=NONE")
 
 require("fzf-lua").setup({ 'fzf-native' })
+require("grapple").setup({
+  icons = false
+})
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
@@ -76,7 +84,8 @@ require("mason-tool-installer").setup({
     "lua_ls",
     "stylua",
     "ts_ls",
-    "tailwindcss"
+    "tailwindcss",
+    "clangd"
   },
 })
 
@@ -138,4 +147,15 @@ require 'nvim-treesitter.configs'.setup {
     end,
     additional_vim_regex_highlighting = false,
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-space>",
+      node_incremental = "<C-space>",
+      scope_incremental = false,
+      node_decremental = "<bs>",
+    },
+  },
 }
+
+require("gitsigns").setup()
